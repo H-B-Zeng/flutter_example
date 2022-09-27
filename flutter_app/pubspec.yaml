@@ -1,11 +1,10 @@
 name: flutter_app
 description: A new Flutter project.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 version: 1.0.0+1
 
 environment:
   sdk: '>=2.17.1 <3.0.0'
-
 
 dependencies:
   authentication_repository:
@@ -36,8 +35,9 @@ flutter:
 
 dependency_overrides:
   bloc:
-    path: ../../packages/bloc
+    path: ../packages/bloc
   bloc_test:
-    path: ../../packages/bloc_test
+    path: ../packages/bloc_test
   flutter_bloc:
-    path: ../../packages/flutter_bloc
+    path: ../packages/flutter_bloc
+

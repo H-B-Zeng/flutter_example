@@ -30,8 +30,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/
+#  assets:
+#    - assets/
 
 dependency_overrides:
   bloc:

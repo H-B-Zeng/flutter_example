@@ -11,6 +11,7 @@ abstract class MovieState extends Equatable {
   List<Object> get props => [];
 }
 
+//顯示高分電影清單
 class TopRatedMovieState extends MovieState {
   final MovieList movieList;
   TopRatedMovieState(this.movieList);
@@ -21,6 +22,7 @@ class TopRatedMovieState extends MovieState {
   }
 }
 
+/// The initial state of the [MovieBloc].
 class InitMovieState extends MovieState {
   @override
   String toString() {
@@ -28,6 +30,7 @@ class InitMovieState extends MovieState {
   }
 }
 
+//取得電影清單中
 class LoadingMovie extends MovieState {
   @override
   String toString() {
@@ -35,6 +38,7 @@ class LoadingMovie extends MovieState {
   }
 }
 
+//遇到錯誤的狀態
 class FailedFetchData extends MovieState {
   @override
   String toString() {

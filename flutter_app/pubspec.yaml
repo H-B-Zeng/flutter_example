@@ -20,6 +20,7 @@ dependencies:
   formz: ^0.4.0
   google_fonts: ^3.0.1
   meta: ^1.7.0
+  animated_text_kit: ^4.2.2
   youtube_player_flutter: any
   youtube_api: any
 # dev_dependencies:
@@ -43,3 +44,15 @@ dependency_overrides:
   flutter_bloc:
     path: ../packages/flutter_bloc
 
+fonts:
+    - family: SF-Pro-Text-Regular
+      fonts:
+        - asset: assets/SF-Pro-Text-Regular.otf
+
+    - family: SF-Pro-Text-Bold
+      fonts:
+        - asset: assets/SF-Pro-Text-Bold.otf
+
+    - family: Calibre-Semibold
+      fonts:
+        - asset: assets/Calibre Semibold.otf

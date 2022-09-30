@@ -7,12 +7,14 @@ import 'movie_api_key.dart';
 class MovieApiProvider {
   final Client _client;
   String _apiKey = movie_api_key;
-  final _baseUrl = 'http://api.themoviedb.org/3/movie';
-  MovieApiProvider({Client client}) : _client = client ?? Client();
+  //final _baseUrl = 'http://api.themoviedb.org/3/movie';
+  final _baseUrl = 'https://api.themoviedb.org/3/movie/550';
+
+  MovieApiProvider({Client? client}) : _client = client ?? Client();
 
   Future<MovieList> fetchPopularMovieList({String region = 'TW'}) async {
-    final response = await _client
-        .get("$_baseUrl/popular?api_key=$_apiKey&page=1&region=$region");
+    String _getUrl = "$_baseUrl/popular?api_key=$_apiKey&page=1&region=$region";
+    final response = await _client.get(Uri.parse(_getUrl));
     if (response.statusCode == 200) {
       return MovieList.fromJson(json.decode(response.body));
     } else {
@@ -21,8 +23,8 @@ class MovieApiProvider {
   }
 
   Future<MovieList> fetchNowPlayingMovieList({String region = 'TW'}) async {
-    final response = await _client
-        .get("$_baseUrl/now_playing?api_key=$_apiKey&page=1&region=$region");
+    String _getUrl = "$_baseUrl/popular?api_key=$_apiKey&page=1&region=$region";
+    final response = await _client.get(Uri.parse(_getUrl));
     if (response.statusCode == 200) {
       return MovieList.fromJson(json.decode(response.body));
     } else {
@@ -31,8 +33,8 @@ class MovieApiProvider {
   }
 
   Future<MovieList> fetchTopRatedMovieList({String region = 'TW'}) async {
-    final response = await _client
-        .get("$_baseUrl/top_rated?api_key=$_apiKey&page=1&region=$region");
+    String _getUrl = "$_baseUrl/popular?api_key=$_apiKey&page=1&region=$region";
+    final response = await _client.get(Uri.parse(_getUrl));
     if (response.statusCode == 200) {
       return MovieList.fromJson(json.decode(response.body));
     } else {

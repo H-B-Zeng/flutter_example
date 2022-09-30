@@ -56,4 +56,6 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
       yield FailedFetchData();
     }
   }
+
+  void dispatch(FetchPopular fetchPopular) {}
 }

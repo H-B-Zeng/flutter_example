@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/home_page.dart';
 import 'package:flutter_app/profile_page.dart';
+import 'package:flutter_app/movie_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,7 +29,7 @@ class RootPage extends StatefulWidget {
 
 class _RootPageState extends State<RootPage> {
   int currentPage = 0;
-  List<Widget> pages = const [HomePage(), ProfilePage()];
+  List<Widget> pages = const [HomePage(), ProfilePage(), MoviePage()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,12 +37,12 @@ class _RootPageState extends State<RootPage> {
         title: const Text('Flutter'),
       ),
       body: pages[currentPage],
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          debugPrint('Floating action button');
-        },
-        child: Icon(Icons.add),
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {
+      //     debugPrint('Floating action button');
+      //   },
+      //   child: Icon(Icons.add),
+      // ),
       bottomNavigationBar: NavigationBar(
         destinations: [
           NavigationDestination(icon: Icon(Icons.home), label: 'Home'),

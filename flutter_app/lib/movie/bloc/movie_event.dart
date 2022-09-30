@@ -23,7 +23,7 @@ class FetchNowPlaying extends MovieEvent {
 class FetchPopular extends MovieEvent {
   final String region;
 
-  FetchPopular(this.region);
+  const FetchPopular(this.region);
 
   @override
   String toString() => "Fetch Popular Movie List {region: $region}";

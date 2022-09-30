@@ -106,21 +106,21 @@ class _ShowMovieWidgetState extends State<ShowMovieWidget> {
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
             child: GestureDetector(
-              onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => MovieDetailPage(
-                            posterPath: movieList
-                                .results[currentPage.round()].backdropPath,
-                            overview:
-                                movieList.results[currentPage.round()].overview,
-                            title: movieList.results[currentPage.round()].title,
-                            releaseDate: movieList
-                                .results[currentPage.round()].releaseDate,
-                            voteAverage: movieList
-                                .results[currentPage.round()].voteAverage,
-                            movieId: movieList.results[currentPage.round()].id,
-                          ))),
+              // onTap: () => Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (context) => MovieDetailPage(
+              //               posterPath: movieList
+              //                   .results[currentPage.round()].backdropPath,
+              //               overview:
+              //                   movieList.results[currentPage.round()].overview,
+              //               title: movieList.results[currentPage.round()].title,
+              //               releaseDate: movieList
+              //                   .results[currentPage.round()].releaseDate,
+              //               voteAverage: movieList
+              //                   .results[currentPage.round()].voteAverage,
+              //               movieId: movieList.results[currentPage.round()].id,
+              //             ))),
               child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[

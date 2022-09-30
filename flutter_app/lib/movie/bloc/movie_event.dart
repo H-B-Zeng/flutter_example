@@ -4,7 +4,6 @@ import 'package:meta/meta.dart';
 @immutable
 abstract class MovieEvent extends Equatable {
   const MovieEvent();
-//MovieEvent({List props = const []});
 
   @override
   List<Object> get props => [];
@@ -13,7 +12,7 @@ abstract class MovieEvent extends Equatable {
 class FetchNowPlaying extends MovieEvent {
   final String region;
 
-  FetchNowPlaying({required this.region});
+  const FetchNowPlaying(this.region);
 
   @override
   String toString() {
@@ -24,21 +23,17 @@ class FetchNowPlaying extends MovieEvent {
 class FetchPopular extends MovieEvent {
   final String region;
 
-  FetchPopular({required this.region});
+  FetchPopular(this.region);
 
   @override
-  String toString() {
-    return "Fetch Popular Movie List {region: $region}";
-  }
+  String toString() => "Fetch Popular Movie List {region: $region}";
 }
 
 class FetchTopRated extends MovieEvent {
   final String region;
 
-  FetchTopRated({required this.region});
+  FetchTopRated(this.region);
 
   @override
-  String toString() {
-    return "Fetch TopRated Movie List {region: $region}";
-  }
+  String toString() => "Fetch TopRated Movie List {region: $region}";
 }

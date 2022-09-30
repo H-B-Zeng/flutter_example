@@ -3,14 +3,13 @@ import 'package:bloc/bloc.dart';
 import '../movie.dart';
 
 class MovieBloc extends Bloc<MovieEvent, MovieState> {
-  MovieBloc() : super(MovieState());
-  // final MovieRepository _movieRepository;
-  //  MovieBloc({required MovieRepository movieRepository})
-  // : assert(movieRepository != null),
-  //   _movieRepository = movieRepository;
+  MovieRepository _movieRepository;
 
-  MovieState get initialState => InitMovieState();
+  MovieBloc({required MovieRepository movieRepository})
+      : _movieRepository = movieRepository,
+        super(InitMovieState());
 
+  //event
   Stream<MovieState> mapEventToState(
     MovieEvent event,
   ) async* {
@@ -23,6 +22,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
     }
   }
 
+//state
   Stream<MovieState> _mapFetchNowPlayingToState(
       {required String region}) async* {
     yield LoadingMovie();
@@ -35,7 +35,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
     }
   }
 
-  Stream<MovieState> _mapFetchPopularToState({String region}) async* {
+  Stream<MovieState> _mapFetchPopularToState({required String region}) async* {
     yield LoadingMovie();
     try {
       final _movieList =
@@ -46,7 +46,7 @@ class MovieBloc extends Bloc<MovieEvent, MovieState> {
     }
   }
 
-  Stream<MovieState> _mapFetchTopRatedToState({String region}) async* {
+  Stream<MovieState> _mapFetchTopRatedToState({required String region}) async* {
     yield LoadingMovie();
     try {
       final _movieList =

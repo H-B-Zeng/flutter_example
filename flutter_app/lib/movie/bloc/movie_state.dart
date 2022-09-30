@@ -5,43 +5,56 @@ import 'package:meta/meta.dart';
 @immutable
 abstract class MovieState extends Equatable {
   const MovieState();
-//MovieState({List props = const []});
 
   @override
   List<Object> get props => [];
 }
 
-//顯示高分電影清單
-class TopRatedMovieState extends MovieState {
+//初始狀態
+class InitMovieState extends MovieState {
+  @override
+  String toString() => "InitMovieState";
+}
+
+class NowPlayingMovieState extends MovieState {
   final MovieList movieList;
-  TopRatedMovieState(this.movieList);
+  NowPlayingMovieState({required this.movieList});
 
   @override
   String toString() {
-    return "TopRatedMovieState";
+    return "NowPlayingMovieState ${movieList.toString()}";
   }
 }
 
-/// The initial state of the [MovieBloc].
-class InitMovieState extends MovieState {
+class PopularMovieState extends MovieState {
+  final MovieList movieList;
+  PopularMovieState({required this.movieList});
+
   @override
   String toString() {
-    return "InitMovieState";
+    return "PopularMovieState";
   }
+}
+
+//顯示高分電影清單
+class TopRatedMovieState extends MovieState {
+  final MovieList movieList;
+  TopRatedMovieState({required this.movieList});
+
+  @override
+  String toString() => "TopRatedMovieState";
 }
 
 //取得電影清單中
 class LoadingMovie extends MovieState {
+  const LoadingMovie();
+
   @override
-  String toString() {
-    return "LoadingMovie";
-  }
+  String toString() => "LoadingMovie";
 }
 
 //遇到錯誤的狀態
 class FailedFetchData extends MovieState {
   @override
-  String toString() {
-    return "FailedFetchData";
-  }
+  String toString() => "FailedFetchData";
 }

@@ -8,7 +8,7 @@ class ShowMovieWidget extends StatefulWidget {
   final MovieList _movieList;
   final String _category;
   ShowMovieWidget(
-      {Key key, @required MovieList movieList, @override String category})
+      {Key? key, required MovieList movieList, required String category})
       : _movieList = movieList,
         _category = category,
         super(key: key);
@@ -30,6 +30,18 @@ class _ShowMovieWidgetState extends State<ShowMovieWidget> {
 
   @override
   Widget build(BuildContext context) {
+    const colorizeColors = [
+      Colors.purple,
+      Colors.blue,
+      Colors.yellow,
+      Colors.red,
+    ];
+
+    const colorizeTextStyle = TextStyle(
+      fontSize: 50.0,
+      fontFamily: 'Horizon',
+    );
+
     PageController controller =
         PageController(initialPage: movieList.results.length - 1);
     controller.addListener(() {
@@ -51,19 +63,17 @@ class _ShowMovieWidgetState extends State<ShowMovieWidget> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 SizedBox(
-                  child: TypewriterAnimatedTextKit(
-                      text: [
+                  child: AnimatedTextKit(
+                    animatedTexts: [
+                      ColorizeAnimatedText(
                         category,
-                      ],
-                      isRepeatingAnimation: false,
-                      textStyle: TextStyle(
-                          fontSize: 34.0,
-                          fontFamily: "Calibre-Semibold",
-                          color: Colors.white),
-                      textAlign: TextAlign.start,
-                      alignment:
-                          AlignmentDirectional.topStart // or Alignment.topLeft
+                        textStyle: colorizeTextStyle,
+                        colors: colorizeColors,
                       ),
+                    ],
+                    isRepeatingAnimation: false,
+                    // or Alignment.topLeft
+                  ),
                 ),
                 Align(
                   alignment: Alignment.centerRight,

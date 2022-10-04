@@ -12,7 +12,7 @@ class MoviePage extends StatefulWidget {
 }
 
 class _MoviePage extends State<MoviePage> {
-  late MovieBloc _movieBloc;
+  MovieBloc _movieBloc;
   final MovieRepository _movieRepository = MovieRepository();
   int _selectIndex = 0;
 
@@ -58,25 +58,25 @@ class _MoviePage extends State<MoviePage> {
         // drawer: SideDrawer(
         //   email: widget.email,
         // ),
-        bottomNavigationBar: NavigationBar(
-          destinations: [
-            NavigationDestination(
-              icon: Icon(Icons.star),
-              label: 'Popular',
-            ),
-            NavigationDestination(
-                icon: Icon(Icons.play_circle_filled), label: 'Now Playing'),
-            NavigationDestination(
-                icon: Icon(Icons.thumb_up), label: 'Top Rated'),
-          ],
-          onDestinationSelected: (int index) {
-            setState(() {
-              currentIndex = index;
-              _onTap(index);
-            });
-          },
-          selectedIndex: currentIndex,
-        ),
+        // bottomNavigationBar: NavigationBar(
+        //   destinations: [
+        //     NavigationDestination(
+        //       icon: Icon(Icons.star),
+        //       label: 'Popular',
+        //     ),
+        //     NavigationDestination(
+        //         icon: Icon(Icons.play_circle_filled), label: 'Now Playing'),
+        //     NavigationDestination(
+        //         icon: Icon(Icons.thumb_up), label: 'Top Rated'),
+        //   ],
+        //   onDestinationSelected: (int index) {
+        //     setState(() {
+        //       currentIndex = index;
+        //       _onTap(index);
+        //     });
+        //   },
+        //   selectedIndex: currentIndex,
+        // ),
         backgroundColor: Colors.transparent,
         body: BlocBuilder(
           bloc: _movieBloc,

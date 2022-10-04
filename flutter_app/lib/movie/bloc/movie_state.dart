@@ -10,25 +10,27 @@ abstract class MovieState extends Equatable {
   List<Object> get props => [];
 }
 
-//初始狀態
 class InitMovieState extends MovieState {
   @override
   String toString() => "InitMovieState";
 }
 
 class NowPlayingMovieState extends MovieState {
+  const NowPlayingMovieState(this.movieList);
   final MovieList movieList;
-  NowPlayingMovieState({required this.movieList});
 
   @override
   String toString() {
     return "NowPlayingMovieState ${movieList.toString()}";
   }
+
+  @override
+  List<Object> get props => [movieList];
 }
 
 class PopularMovieState extends MovieState {
+  PopularMovieState(this.movieList);
   final MovieList movieList;
-  PopularMovieState({required this.movieList});
 
   @override
   String toString() {

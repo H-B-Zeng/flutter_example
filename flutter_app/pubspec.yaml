@@ -19,6 +19,11 @@ dependencies:
     path: packages/form_inputs
   formz: ^0.4.0
   google_fonts: ^3.0.1
+  hydrated_bloc: ^9.0.0-dev.3
+  json_annotation: ^4.4.0
+  path_provider: ^2.0.8
+  weather_repository:
+    path: packages/weather_repository
   meta: ^1.7.0
   animated_text_kit: ^4.2.2
   youtube_player_flutter: any
